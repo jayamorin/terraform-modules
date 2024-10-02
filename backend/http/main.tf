@@ -7,6 +7,6 @@ terraform {
     password = "${var.password}"
     lock_method = "${var.lock_method}"
     unlock_method = "${var.unlock_method}"
-    retry_wait_min = ${var.retry_wait_min}
+    retry_wait_min = "${var.retry_wait_min}"
   }
 }
