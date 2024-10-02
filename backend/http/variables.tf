@@ -49,7 +49,7 @@ variable "unlock_method" {
   type        = string
   default     = "UNLOCK"
   validation {
-    condition     = contains(["LOCK", " UNLOCK"], var.unlock_method)
+    condition     = contains(["LOCK", "UNLOCK"], var.unlock_method)
     error_message = "Argument 'unlock_method' must one of 'LOCK', or 'UNLOCK'."
   }
 }
