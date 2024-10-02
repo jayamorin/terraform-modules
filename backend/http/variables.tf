@@ -56,6 +56,7 @@ variable "password" {
   description = "The password for HTTP basic authentication."
   type        = string
   default     = ""
+  sensitive   = true
 }
 
 variable "skip_cert_verification" {
