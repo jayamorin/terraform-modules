@@ -31,7 +31,7 @@ variable "twitter_username" {
 variable "location" {
   description = "The location for the organization."
   type        = string
-  default     == ""
+  default     = ""
 }
 
 variable "name" {
