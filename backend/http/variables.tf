@@ -18,10 +18,6 @@ variable "lock_address" {
   description = "The address of the lock REST endpoint."
   type        = string
   default     = "disabled"
-  validation {
-    condition     = contains(["enabled", "disabled"], var.lock_address)
-    error_message = "Argument 'lock_address' must one of 'enabled', or 'disabled'."
-  }
 }
 
 variable "lock_method" {
@@ -38,10 +34,6 @@ variable "unlock_address" {
   description = "The address of the unlock REST endpoint."
   type        = string
   default     = "disabled"
-  validation {
-    condition     = contains(["enabled", "disabled"], var.unlock_address)
-    error_message = "Argument 'unlock_address' must one of 'enabled', or 'disabled'."
-  }
 }
 
 variable "unlock_method" {
