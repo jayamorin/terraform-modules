@@ -1,14 +1,14 @@
 resource "github_organization_settings" "settings" {
-    billing_email = var.billing_email
-    company = var.company
-    blog = var.blog
-    email = var.email
-    twitter_username = var.twitter_username
     name = var.name
+    billing_email = var.billing_email
+    email = var.email
     description = var.description
+    blog = var.blog
+    twitter_username = var.twitter_username
+    location = var.location
+    default_repository_permission = var.default_repository_permission
     has_organization_projects = var.has_organization_projects
     has_repository_projects = var.has_repository_projects
-    default_repository_permission = var.default_repository_permission
     members_can_create_repositories = var.members_can_create_repositories
     members_can_create_public_repositories = var.members_can_create_public_repositories
     members_can_create_private_repositories = var.members_can_create_private_repositories
