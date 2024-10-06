@@ -4,12 +4,6 @@ variable "billing_email" {
   nullable    = false
 }
 
-variable "company" {
-  description = "The company name for the organization."
-  type        = string
-  default     = ""
-}
-
 variable "blog" {
   description = "The blog URL for the organization."
   type        = string
@@ -83,12 +77,6 @@ variable "members_can_create_public_repositories" {
 
 variable "members_can_create_private_repositories" {
   description = "Whether or not organization members can create new private repositories."
-  type        = bool
-  default     = false
-}
-
-variable "members_can_create_internal_repositories" {
-  description = "Whether or not organization members can create new internal repositories. For Enterprise Organizations only."
   type        = bool
   default     = false
 }
