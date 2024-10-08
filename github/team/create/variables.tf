@@ -1,9 +1,3 @@
-variable "prevent_destroy" {
-  description = "Flag to enable prevent_destroy lifecycle setting"
-  type        = bool
-  default     = false
-}
-
 variable "name" {
   description = "The name of the team."
   type        = string
