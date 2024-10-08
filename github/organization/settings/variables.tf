@@ -5,13 +5,6 @@ variable "billing_email" {
   default     = "test@test.com"
 }
 
-variable "company" {
-  description = "The company name for the organization."
-  type        = string
-  default     = "test"
-  nullable    = false
-}
-
 variable "blog" {
   description = "The blog URL for the organization."
   type        = string

@@ -1,6 +1,5 @@
 resource "github_organization_settings" "settings" {
   billing_email                                                = var.billing_email
-  company                                                      = var.company
   blog                                                         = var.blog
   email                                                        = var.email
   twitter_username                                             = var.twitter_username
