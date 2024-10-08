@@ -2,44 +2,37 @@ variable "billing_email" {
   description = "The billing email address for the organization."
   type        = string
   nullable    = false
-  default     = "test@test.com"
 }
 
 variable "blog" {
   description = "The blog URL for the organization."
   type        = string
-  default     = ""
 }
 
 variable "email" {
   description = "The email address for the organization."
   type        = string
-  default     = "test@test.com"
 }
 
 variable "twitter_username" {
   description = "The Twitter username for the organization."
   type        = string
-  default     = "test"
 }
 
 variable "location" {
   description = "The location for the organization."
   type        = string
-  default     = "Philippines"
 }
 
 variable "name" {
   description = "The name for the organization."
   type        = string
-  default     = "test"
   nullable    = false
 }
 
 variable "description" {
   description = "The description for the organization."
   type        = string
-  default     = "test"
 }
 
 variable "has_organization_projects" {
@@ -55,7 +48,7 @@ variable "has_repository_projects" {
 }
 
 variable "default_repository_permission" {
-  description     = "The default permission for organization members to create new repositories. Can be one of read, write, admin, or none."
+  description     = "The default permission for organization members to create new repositories."
   type            = string
   default         = "read"
   validation {

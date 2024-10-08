@@ -10,7 +10,7 @@ variable "description" {
 }
 
 variable "privacy" {
-  description = "The level of privacy for the team. Must be one of secret or closed."
+  description = "The level of privacy for the team."
   type        = string
   default     = "secret"
     validation {
