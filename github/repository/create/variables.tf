@@ -208,7 +208,7 @@ variable "archived" {
 }
 
 variable "archive_on_destroy" {
-  description = "Set to true to archive the repository instead of deleting on destroy.
+  description = "Set to true to archive the repository instead of deleting on destroy."
   type        = bool
 }
 
