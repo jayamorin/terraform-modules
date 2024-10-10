@@ -54,6 +54,7 @@ variable "has_projects" {
     been disabled it will return an error.
     EOT
   type        = bool
+  default     = true
 }
 
 variable "has_wiki" {
