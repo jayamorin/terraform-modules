@@ -202,7 +202,7 @@ variable "archive_on_destroy" {
 }
 
 variable "pages" {
-  description = <<-EOT
+  description  = <<-EOT
     The repository's GitHub Pages configuration. See GitHub Pages Configuration below
     for details.
 
@@ -229,12 +229,28 @@ variable "pages" {
         path - (Optional) The repository directory from which the site publishes
         (Default: /).
     EOT
-  type        =  any
-  default     = {}
+  type         =  object({
+    enable     = bool
+    source     = object({
+      branch   = string
+      path     = string
+    })
+    build_type = string
+    cname      = string
+  })
+  default      = {
+    enable     = false
+    source = {
+      branch   = ""
+      path     = ""
+    }
+    build_type = ""
+    cname      = ""
+  }
 }
 
 variable "security_and_analysis" {
-  description = <<-EOT
+  description                       = <<-EOT
     The repository's security and analysis configuration. See Security and Analysis
     Configuration below for details.
 
@@ -275,8 +291,30 @@ variable "security_and_analysis" {
       visibility must be public or security_and_analysis[0].advanced_security[0].status
       must also be set to enabled.
     EOT
-  type        =  any
-  default     = {}
+  type                              = object({
+    enable                          = bool
+    advanced_security               = object({
+      status                        = string
+    })
+    secret_scanning                 = object({
+      status                        = string
+    })
+    secret_scanning_push_protection = object({
+      status                        = string
+    })
+  })
+  default                           = {
+    enable                          = false
+    advanced_security               = {
+      status                        = ""
+    }
+    secret_scanning                 = {
+      status                        = ""
+    }
+    secret_scanning_push_protection = {
+      status                        = ""
+    }
+  }
 }
 
 variable "topics" {
@@ -311,8 +349,18 @@ variable "template" {
         branches from the template repository (defaults to false, which includes only
         the default branch from the template).
     EOT
-  type        =  any
-  default     = {}
+  type                   = object({
+    enable               = bool
+    owner                = string
+    repository           = string
+    include_all_branches = bool
+  })
+  default                = {
+    enable               = false
+    owner                = ""
+    repository           = ""
+    include_all_branches = false
+  }
 }
 
 variable "vulnerability_alerts" {

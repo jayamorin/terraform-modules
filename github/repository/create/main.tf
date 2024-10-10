@@ -26,11 +26,47 @@ resource "github_repository" "repository" {
   default_branch                          = var.default_branch
   archived                                = var.archived
   archive_on_destroy                      = var.archive_on_destroy
-  pages                                   = var.pages
-  security_and_analysis                   = var.security_and_analysis
   topics                                  = var.topics
-  template                                = var.template
   vulnerability_alerts                    = var.vulnerability_alerts
   ignore_vulnerability_alerts_during_read = var.ignore_vulnerability_alerts_during_read
   allow_update_branch                     = var.allow_update_branch
+
+  dynamic "pages" {
+    for_each = var.pages.enable ? [1] : []
+
+    content {
+      source {
+        branch   = var.pages.source.branch
+        path     = var.pages.source.path
+      }
+      build_type = var.pages.build_type
+      cname      = var.pages.cname
+    }
+  }
+
+  dynamic "security_and_analysis" {
+    for_each = var.security_and_analysis.enable ? [1] : []
+
+    content {
+      advanced_security {
+        status = var.security_and_analysis.advanced_security.status
+      }
+      secret_scanning {
+        status = var.security_and_analysis.secret_scanning.status
+      }
+      secret_scanning_push_protection {
+        status = var.security_and_analysis.secret_scanning_push_protection.status
+      }
+    }
+  }
+
+  dynamic "template" {
+    for_each = var.template.enable ? [1] : []
+
+    content {
+      owner                = var.template.owner
+      repository           = var.template.repository
+      include_all_branches = var.template.include_all_branches
+    }
+  }
 }
