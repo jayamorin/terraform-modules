@@ -21,8 +21,8 @@ resource "github_repository" "repository" {
   web_commit_signoff_required             = var.web_commit_signoff_required
   has_downloads                           = var.has_downloads
   auto_init                               = var.auto_init
-  gitignore_template                      = var.gitignore_template
-  license_template                        = var.license_template
+  gitignore_template                      = null
+  license_template                        = null
   default_branch                          = var.default_branch
   archived                                = var.archived
   archive_on_destroy                      = var.archive_on_destroy
