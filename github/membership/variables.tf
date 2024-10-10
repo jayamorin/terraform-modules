@@ -5,7 +5,10 @@ variable "username" {
 }
 
 variable "role" {
-  description = "The role of the user within the organization. admin role represents the owner role available via GitHub UI.
+  description = <<-EOT
+    The role of the user within the organization. admin role represents the owner role
+    available via GitHub UI.
+    EOT
   type = string
   default = "member"
   validation {
@@ -15,7 +18,10 @@ variable "role" {
 }
 
 variable "downgrade_on_destroy" {
-  description = "If set to true, when this resource is destroyed, the member will not be removed from the organization. Instead, the member's role will be downgraded to 'member'."
+  description = <<-EOT
+    If set to true, when this resource is destroyed, the member will not be removed from
+    the organization. Instead, the member's role will be downgraded to 'member'.
+    EOT
   type = bool
   default = false
 }

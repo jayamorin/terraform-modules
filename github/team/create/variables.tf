@@ -20,7 +20,10 @@ variable "privacy" {
 }
 
 variable "create_default_maintainer" {
-  description = "Adds a default maintainer to the team. Defaults to false and adds the creating user to the team when true."
+  description = <<-EOT
+    Adds a default maintainer to the team. Defaults to false and adds the creating user
+    to the team when true.
+    EOT
   type        = bool
   default     = false
 }

@@ -48,7 +48,9 @@ variable "has_repository_projects" {
 }
 
 variable "default_repository_permission" {
-  description     = "The default permission for organization members to create new repositories."
+  description     = <<-EOT
+    The default permission for organization members to create new repositories.
+    EOT
   type            = string
   default         = "read"
   validation {
@@ -64,13 +66,17 @@ variable "members_can_create_repositories" {
 }
 
 variable "members_can_create_public_repositories" {
-  description = "Whether or not organization members can create new public repositories."
+  description = <<-EOT
+    Whether or not organization members can create new public repositories.
+    EOT
   type        = bool
   default     = false
 }
 
 variable "members_can_create_private_repositories" {
-  description = "Whether or not organization members can create new private repositories."
+  description = <<-EOT
+    Whether or not organization members can create new private repositories.
+    EOT
   type        = bool
   default     = false
 }
@@ -100,7 +106,9 @@ variable "members_can_fork_private_repositories" {
 }
 
 variable "web_commit_signoff_required" {
-  description = "Whether or not commit signatures are required for commits to the organization."
+  description = <<-EOT
+    Whether or not commit signatures are required for commits to the organization.
+    EOT
   type        = bool
   default     = false
 }
@@ -118,7 +126,9 @@ variable "dependabot_alerts_enabled_for_new_repositories" {
 }
 
 variable "dependabot_security_updates_enabled_for_new_repositories" {
-  description = "Whether or not dependabot security updates are enabled for new repositories."
+  description = <<-EOT
+    Whether or not dependabot security updates are enabled for new repositories.
+    EOT
   type        = bool
   default     = false
 }
@@ -136,7 +146,9 @@ variable "secret_scanning_enabled_for_new_repositories" {
 }
 
 variable "secret_scanning_push_protection_enabled_for_new_repositories" {
-  description = "Whether or not secret scanning push protection is enabled for new repositories."
+  description = <<-EOT
+    Whether or not secret scanning push protection is enabled for new repositories.
+    EOT
   type        = bool
   default     = false
 }
