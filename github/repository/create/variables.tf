@@ -7,11 +7,13 @@ variable "name" {
 variable "description" {
   description = "A description of the repository."
   type        = string
+  nullable    = false
 }
 
 variable "homepage_url" {
   description = "URL of a page describing the project."
   type        = string
+  default     = null
 }
 
 variable "private" {
@@ -95,6 +97,7 @@ variable "squash_merge_commit_title" {
     Applicable only if allow_squash_merge is true.
     EOT
   type            = string
+  default         = "PR_TITLE"
   validation {
     condition     = var.allow_squash_merge == true && contains(["PR_TITLE", "COMMIT_OR_PR_TITLE"], var.squash_merge_commit_title)
     error_message = "Argument 'squash_merge_commit_title' must one of 'PR_TITLE', or 'COMMIT_OR_PR_TITLE'."
@@ -107,6 +110,7 @@ variable "squash_merge_commit_message" {
     Applicable only if allow_squash_merge is true.
     EOT
   type            = string
+  default         = "COMMIT_MESSAGES"
   validation {
     condition     = var.allow_squash_merge == true && contains(["PR_BODY", "COMMIT_MESSAGES", "BLANK"], var.squash_merge_commit_message)
     error_message = "Argument 'squash_merge_commit_message' must one of 'PR_BODY', 'COMMIT_MESSAGES', or 'BLANK'."
@@ -119,6 +123,7 @@ variable "merge_commit_title" {
     Applicable only if allow_merge_commit is true.
     EOT
   type            = string
+  default         = "PR_TITLE"
   validation {
     condition     = var.allow_merge_commit == true && contains(["PR_TITLE", "MERGE_MESSAGE"], var.merge_commit_title)
     error_message = "Argument 'merge_commit_title' must one of 'PR_TITLE', or 'MERGE_MESSAGE'."
@@ -131,6 +136,7 @@ variable "merge_commit_message" {
     only if allow_merge_commit is true.
     EOT
   type            = string
+  default         = "PR_BODY"
   validation {
     condition     = var.allow_merge_commit == true && contains(["PR_BODY", "PR_TITLE", "BLANK"], var.merge_commit_message)
     error_message = "Argument 'merge_commit_message' must one of 'PR_BODY', 'PR_TITLE', or 'BLANK'."
@@ -159,11 +165,13 @@ variable "has_downloads" {
     Set to true to enable the (deprecated) downloads features on the repository.
     EOT
   type        = bool
+  default     = false
 }
 
 variable "auto_init" {
   description = "Set to true to produce an initial commit in the repository."
   type        = bool
+  default     = true
 }
 
 variable "gitignore_template" {
@@ -200,6 +208,7 @@ variable "default_branch" {
     prior to setting this attribute.
     EOT
   type        = string
+  default     = null
 }
 
 variable "archived" {
@@ -339,6 +348,7 @@ variable "vulnerability_alerts" {
     tested on any GitHub Enterprise instance and may be unavailable in those settings.
     EOT
   type        = bool
+  default     = false
 }
 
 variable "ignore_vulnerability_alerts_during_read" {
@@ -347,6 +357,7 @@ variable "ignore_vulnerability_alerts_during_read" {
     be used without admin permissions during read.
     EOT
   type        = bool
+  default     = true
 }
 
 variable "allow_update_branch" {
